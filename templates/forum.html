@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Записи на форуме</h1>
+{% if current_user.is_authenticated %}
+<a href="questions" class="btn btn-secondary">Добавить вопрос</a>
+{% endif %}
+{% for item in questions%}
+<div class="col-md6 border rounded">
+    <h2>{{item.theme}}</h2>
+    <div>
+        {{item.content}}
+    </div>
+    <div>
+        Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
+    </div>
+    {% if current_user.is_authenticated and current_user == item.user %}
+    <div>
+        <a href="/questions/{{ item.id }}" class="btn btn-warning">
+            Изменить
+        </a>
+        <a href="/questions_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+</body>
+</html>

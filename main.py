@@ -1,9 +1,11 @@
 from flask import Flask, render_template, redirect
-from flask_login import LoginManager, login_user, login_required, logout_user
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from data import db_session
 from data.users import User
+from data.questions import Questions
 from forms.register import RegisterForm
 from forms.login import LoginForm
+from forms.questions import QuestionsForm
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -67,6 +69,23 @@ def reqister():
         db_sess.commit()
         return redirect('/login')
     return render_template('register.html', title='Регистрация', form=form)
+
+
+@app.route('/questions', methods=['GET', 'POST'])
+@login_required
+def add_news():
+    form = QuestionsForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        question = Questions()
+        question.theme = form.theme.data
+        question.content = form.content.data
+        current_user.questions.append(question)
+        db_sess.merge(current_user)
+        db_sess.commit()
+        return redirect('/')
+    return render_template('add_question.html', title='Добавление вопроса',
+                           form=form)
 
 
 @app.route('/')
