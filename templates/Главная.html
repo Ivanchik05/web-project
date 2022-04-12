@@ -1,28 +1,155 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section>
-      <div class="u-clearfix u-sheet u-sheet-1">
+<section>
+    <div class="u-clearfix u-sheet u-sheet-1">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <div class="carousel-indicators">
-              <button type="button" data-bs-target="#trailers" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></button>
-              <button type="button" data-bs-target="#trailers" data-target="#carouselExampleIndicators" data-slide-to="1"></button>
-              <button type="button" data-bs-target="#trailers" data-target="#carouselExampleIndicators" data-slide-to="2"></button>
-          </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="https://chemodanus.ru/upload/information_system_143/5/6/7/item_5670/002-novo-kazansky-sobor.jpg" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="https://yandex-images.clstorage.net/eQ9BJ7417/cf548d6eR4O/l5-RjKYyIHiloqV7OqrCGn27veCf43nySA36WOP8hvXPNsczSs-1OpqhXx4kop3cK8CG4DlAQXfPHcsyLikaHsYdFEvmNyDoZWZgKOwrUpwuqDBvlaqluYEAZlLuM9x_x7WHNpgapT9IccREJ3yVCXOZkDogU0rzXkCffjM4kspfhc6Ta7Il_SbgYiD_rgKF-Dc0L9WrYvsLjCjXZr-YvAj2A7cRkCdlz7YJhX0wHMpzGhh8p9fMfhqNFnv0eRfKGoXOFmvzYHAubKQpsyJKj3L5eC3a6Wg8h0yhWez5HrRId8X-XNWj6Qn5hQg0t1GDsxAcfWfehzsaTFqzejddQNZLTNHju-Bw6Gpiq_WuCsX9vfUk1mwgP8wB6lFiehV4wHVBMBiba6YBuofAdz3fgb-W0n1sUUe6mY_d8vY1EoPVDEDe53fjNWGoKiIw5UrA9nq97NbkIPjCwunR7jLZM4D3yvAZ0KZlzfhCj369FwI3HdexZVND85bAkvbwMpAK2A1G1mf1ZT0gr6Umu6hKB_bw-CTSbGgzgAGkXK-6H_XGd88_E9-tbw42Bk_z_1XOe9wYfaZWx3ieSBtz9TCfS5ULTl3uvas4r2osYjKijkg1sbQo1O6r80zAZ9qg_5f3DnLO_d0a6CpFNEaN-jUUS37SmH0n2AS2FgTfN7R0W07RBQvb4n4s8yjiKSH_5wyDP3I1Yprn43tBzW0XLnCZeMa2BjZbnWnlgn2AQfR62YW3n1-xYJ1C9ddA2r_wPV0LWAmCG6w9YfSg76JiMK9KTHE_euhbK2gwyYRnHe-8W7mM-YH2HdsqIMB4wA7yvJsDtteUsawWCb5QBVK2uTSXCZ1Mzlkkcq02bahoLHIrAIr5sbYjkKFiMsgCb9WhNxa2gr9CM5zfaeRJeMbOfXVchDXQk7ihVggwkENa_zJ22g7bxURbanNj_OftbG08ZsOMO381Jdzva7sDTmXbqs" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="https://ds04.infourok.ru/uploads/ex/0849/000747c0-e0990c83/hello_html_mc324013.jpg" alt="Third slide">
-          </div>
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#trailers" data-target="#carouselExampleIndicators"
+                        data-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#trailers" data-target="#carouselExampleIndicators"
+                        data-slide-to="1"></button>
+                <button type="button" data-bs-target="#trailers" data-target="#carouselExampleIndicators"
+                        data-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100"
+                         src="https://chemodanus.ru/upload/information_system_143/5/6/7/item_5670/002-novo-kazansky-sobor.jpg"
+                         alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100"
+                         src="https://yandex-images.clstorage.net/eQ9BJ7417/cf548d6eR4O/l5-RjKYyIHiloqV7OqrCGn27veCf43nySA36WOP8hvXPNsczSs-1OpqhXx4kop3cK8CG4DlAQXfPHcsyLikaHsYdFEvmNyDoZWZgKOwrUpwuqDBvlaqluYEAZlLuM9x_x7WHNpgapT9IccREJ3yVCXOZkDogU0rzXkCffjM4kspfhc6Ta7Il_SbgYiD_rgKF-Dc0L9WrYvsLjCjXZr-YvAj2A7cRkCdlz7YJhX0wHMpzGhh8p9fMfhqNFnv0eRfKGoXOFmvzYHAubKQpsyJKj3L5eC3a6Wg8h0yhWez5HrRId8X-XNWj6Qn5hQg0t1GDsxAcfWfehzsaTFqzejddQNZLTNHju-Bw6Gpiq_WuCsX9vfUk1mwgP8wB6lFiehV4wHVBMBiba6YBuofAdz3fgb-W0n1sUUe6mY_d8vY1EoPVDEDe53fjNWGoKiIw5UrA9nq97NbkIPjCwunR7jLZM4D3yvAZ0KZlzfhCj369FwI3HdexZVND85bAkvbwMpAK2A1G1mf1ZT0gr6Umu6hKB_bw-CTSbGgzgAGkXK-6H_XGd88_E9-tbw42Bk_z_1XOe9wYfaZWx3ieSBtz9TCfS5ULTl3uvas4r2osYjKijkg1sbQo1O6r80zAZ9qg_5f3DnLO_d0a6CpFNEaN-jUUS37SmH0n2AS2FgTfN7R0W07RBQvb4n4s8yjiKSH_5wyDP3I1Yprn43tBzW0XLnCZeMa2BjZbnWnlgn2AQfR62YW3n1-xYJ1C9ddA2r_wPV0LWAmCG6w9YfSg76JiMK9KTHE_euhbK2gwyYRnHe-8W7mM-YH2HdsqIMB4wA7yvJsDtteUsawWCb5QBVK2uTSXCZ1Mzlkkcq02bahoLHIrAIr5sbYjkKFiMsgCb9WhNxa2gr9CM5zfaeRJeMbOfXVchDXQk7ihVggwkENa_zJ22g7bxURbanNj_OftbG08ZsOMO381Jdzva7sDTmXbqs"
+                         alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100"
+                         src="https://ds04.infourok.ru/uploads/ex/0849/000747c0-e0990c83/hello_html_mc324013.jpg"
+                         alt="Third slide">
+                </div>
+            </div>
         </div>
-      </div>
-      </div>
-    </section>
+    </div>
+</section>
 
+<section style="max-height: 2100px;" class="u-clearfix u-section-1" id="sec-6f6d">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 style="margin: 25px 72px 0;" class="u-align-center u-text u-text-default u-text-1">Лебедянь: главные
+            достопримечательности</h1>
+        <div class="u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-1">
+                        <h4 class="u-align-center u-custom-item u-text u-text-2">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-1"
+                               href="/Novo-Kazan_cathedral">1) Ново-Казанский собор</a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-1"
+                             src="../static/img/novo_kazan_1.jpg" alt="" data-image-width="1200"
+                             data-image-height="640">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-2">
+                        <h4 class="u-align-center u-custom-item u-text u-text-3">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-2"
+                               href="/Lebedyan_museum">2) Лебедянский краеведческий музей</a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-2"
+                             src="../static/img/museum_1.jpg" alt="" data-image-width="4000" data-image-height="2248">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-3">
+                        <h4 class="u-align-center u-custom-item u-text u-text-4">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-1"
+                               href="/buyer_monument">3) Памятник покупателю</a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-3"
+                             src="../static/img/buyer_monument_1.jpg" alt="" data-image-width="1280"
+                             data-image-height="854">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-4">
+                        <h4 class="u-align-center u-custom-item u-text u-text-5">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-4"
+                               href="/Zamyatin">4) Дом-музей Е. И. Замятина</a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-4"
+                             src="../static/img/zamyatin_1.jpg" alt="" data-image-width="1200" data-image-height="640">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-5">
+                        <h4 class="u-align-center u-custom-item u-text u-text-6">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-5"
+                               href="/Igumnov">5) Бюст К. Н. Игумнова<br>
+                            </a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-5"
+                             src="../static/img/igumnov_1.jpg" alt="" data-image-width="1024" data-image-height="575">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-6">
+                        <h4 class="u-align-center u-custom-item u-text u-text-7">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-6"
+                               href="/monastery">6) Свято-Троицкий монастырь</a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-6"
+                             src="../static/img/monastery_1.jpg" alt="" data-image-width="851" data-image-height="700">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-7">
+                        <h4 class="u-align-center u-custom-item u-text u-text-8">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-7"
+                               href="/Novo-Kazan_cathedral">7) Река Красивая меча</a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-7"
+                             src="../static/img/river_mecha.jpg" alt="" data-image-width="1200" data-image-height="676">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-8">
+                        <h4 class="u-align-center u-custom-item u-text u-text-9">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-8"
+                               href="/county_school">8) Уездное училище<br>
+                            </a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-8"
+                             src="../static/img/county_school.jpg" alt="" data-image-width="2496"
+                             data-image-height="1664">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-9">
+                        <h4 class="u-align-center u-custom-item u-text u-text-10">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-9"
+                               href="/bridge">9) Казённый мост<br>
+                            </a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-9"
+                             src="../static/img/kazennyj_most_1.jpg" alt="" data-image-width="1200"
+                             data-image-height="800">
+                    </div>
+                </div>
+                <div class="u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-container-layout-10">
+                        <h4 class="u-align-center u-custom-item u-text u-text-11">
+                            <a class="u-border-2 u-border-grey-75 u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-black u-text-hover-palette-1-base u-top-left-radius-0 u-top-right-radius-0 u-btn-10"
+                               href="/tyapkina_mountain">10) Тяпкина гора</a>
+                        </h4>
+                        <img class="u-expanded-width u-hover-feature u-image u-image-round u-radius-10 u-image-10"
+                             src="../static/img/tyapkina_mountain_1.jpg" alt="" data-image-width="800"
+                             data-image-height="533">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
