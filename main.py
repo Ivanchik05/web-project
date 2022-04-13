@@ -71,6 +71,13 @@ def reqister():
     return render_template('register.html', title='Регистрация', form=form)
 
 
+@app.route("/all_questions")
+def forum():
+    db_sess = db_session.create_session()
+    questions = db_sess.query(Questions)
+    return render_template("questions.html", questions=questions)
+
+
 @app.route('/questions', methods=['GET', 'POST'])
 @login_required
 def add_news():

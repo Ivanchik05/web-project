@@ -19,6 +19,7 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,
                                      default=datetime.datetime.now)
+    admin = sqlalchemy.Column(sqlalchemy.Boolean, default=False, nullable=True)
 
     questions = orm.relation("Questions", back_populates='user')
 
