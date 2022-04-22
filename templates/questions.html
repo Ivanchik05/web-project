@@ -19,6 +19,7 @@
 </head>
 <body class="container">
 <h1>Записи на форуме</h1>
+<a href="/" class="btn btn-primary">Вернуться на главную</a>
 <!--------------------------------------------->
 {% if current_user.is_authenticated and not current_user.admin%}
     <a href="add_question" class="btn btn-secondary">Добавить вопрос</a>
@@ -35,7 +36,7 @@
         Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
     </div>
     {% if current_user.admin%}
-        <a href="delete_question" class="btn btn-danger delete">Удалить</a>
+        <a href="delete_question/{{item.id}}" class="btn btn-danger delete">Удалить</a>
         {% if item.id not in question_id%}
             <a href="answer" class="btn btn-success ansbutton">Ответить</a>
         {% endif %}

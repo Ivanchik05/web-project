@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, abort
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from data import db_session
 from data.users import User
@@ -101,6 +101,21 @@ def add_question():
         return redirect('/all_questions')
     return render_template('add_question.html', title='Добавление вопроса',
                            form=form)
+
+
+@app.route('/delete_question/<int:id>', methods=['GET', 'POST'])
+@login_required
+def delete_question(id):
+    db_sess = db_session.create_session()
+    question = db_sess.query(Questions).filter(Questions.id == id).first()
+    answer = db_sess.query(Answers).filter(Answers.question_id == id).first()
+    if question and answer:
+        db_sess.delete(question)
+        db_sess.delete(answer)
+        db_sess.commit()
+    else:
+        abort(404)
+    return redirect('/all_questions')
 
 
 @app.route('/answer', methods=['GET', 'POST'])
