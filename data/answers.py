@@ -6,16 +6,17 @@ from sqlalchemy_serializer import SerializerMixin
 from .db_session import SqlAlchemyBase
 
 
-class Questions(SqlAlchemyBase, SerializerMixin):
-    __tablename__ = 'questions'
+class Answers(SqlAlchemyBase, SerializerMixin):
+    __tablename__ = 'answers'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
-    theme = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    question_id = sqlalchemy.Column(sqlalchemy.Integer,
+                                    sqlalchemy.ForeignKey("questions.id"))
+    user_id = sqlalchemy.Column(sqlalchemy.Integer,
+                                sqlalchemy.ForeignKey("users.id"))
     content = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,
                                      default=datetime.datetime.now)
-    user_id = sqlalchemy.Column(sqlalchemy.Integer,
-                                sqlalchemy.ForeignKey("users.id"))
     user = orm.relation('User')
-    answers = orm.relation("Answers")
+    question = orm.relation('Questions')

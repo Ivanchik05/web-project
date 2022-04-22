@@ -23,6 +23,8 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
 
     questions = orm.relation("Questions", back_populates='user')
 
+    answers = orm.relation("Answers", back_populates='user')
+
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
 

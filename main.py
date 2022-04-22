@@ -3,9 +3,12 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from data import db_session
 from data.users import User
 from data.questions import Questions
+from data.answers import Answers
 from forms.register import RegisterForm
 from forms.login import LoginForm
 from forms.questions import QuestionsForm
+from forms.answers import AnswersForm
+import sqlite3
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -15,7 +18,7 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 def main():
     db_session.global_init("db/date.db")
-    app.run(port=8080, host='127.0.0.1')
+    app.run(port=8080, host='127.0.0.1', debug=True)
 
 
 @login_manager.user_loader
@@ -75,12 +78,17 @@ def reqister():
 def forum():
     db_sess = db_session.create_session()
     questions = db_sess.query(Questions)
-    return render_template("questions.html", questions=questions)
+    answers = db_sess.query(Answers)
+    con = sqlite3.connect('db/date.db')
+    cur = con.cursor()
+    lst = cur.execute('''SELECT question_id FROM answers''').fetchall()
+    question_id = list(map(lambda x: x[0], lst))
+    return render_template("questions.html", questions=questions, question_id=question_id, answers=answers)
 
 
-@app.route('/questions', methods=['GET', 'POST'])
+@app.route('/add_question', methods=['GET', 'POST'])
 @login_required
-def add_news():
+def add_question():
     form = QuestionsForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
@@ -90,15 +98,31 @@ def add_news():
         current_user.questions.append(question)
         db_sess.merge(current_user)
         db_sess.commit()
-        return redirect('/')
+        return redirect('/all_questions')
     return render_template('add_question.html', title='Добавление вопроса',
+                           form=form)
+
+
+@app.route('/answer', methods=['GET', 'POST'])
+@login_required
+def answer():
+    form = AnswersForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        answers = Answers()
+        answers.question_id = form.question_id.data
+        answers.content = form.content.data
+        current_user.answers.append(answers)
+        db_sess.merge(current_user)
+        db_sess.commit()
+        return redirect('/all_questions')
+    return render_template('answer.html', title='Ответ',
                            form=form)
 
 
 @app.route('/')
 @app.route('/Главная.html')
 def index():
-    db_sess = db_session.create_session()
     return render_template('Главная.html', title='Главная')
 
 

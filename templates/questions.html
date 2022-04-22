@@ -11,14 +11,17 @@
         .text {margin-left: 10px;}
         .content {font-size: 20px;}
         .date {font-weight: bold;}
+        .ansbutton {margin-left: 80%; margin-top: -6%;}
+        .delete {margin-left: 89%; margin-top: 0%;}
+        .answer {background-color: #C9F2B1;}
     </style>
     <title>Вопрос - Ответ</title>
 </head>
 <body class="container">
 <h1>Записи на форуме</h1>
-{% if current_user.is_authenticated %}
-<a href="questions" class="btn btn-secondary">Добавить вопрос</a>
-<p>{{current_user.admin}}</p>
+<!--------------------------------------------->
+{% if current_user.is_authenticated and not current_user.admin%}
+    <a href="add_question" class="btn btn-secondary">Добавить вопрос</a>
 {% endif %}
 {% for item in questions%}
 <br>
@@ -31,7 +34,22 @@
     <div class="text date">
         Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
     </div>
-    <br>
+    {% if current_user.admin%}
+        <a href="delete_question" class="btn btn-danger delete">Удалить</a>
+        {% if item.id not in question_id%}
+            <a href="answer" class="btn btn-success ansbutton">Ответить</a>
+        {% endif %}
+    {% endif %}
+    {% if item.id in question_id%}
+    <div class="answer col-md6 border rounded border-danger border-2 text">
+        {% for i in answers%}
+            {% if item.id == i.id%}
+                <p class="text date">ADMIN</p>
+            <p> - {{i.content}}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
 </div>
 {% endfor %}
 </body>
