@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+
+{% block content %}
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
-    <link rel="icon" href="../static/img/lebed.png">
-    <style>
-        .text {margin-left: 10px;}
-        .content {font-size: 20px;}
-        .date {font-weight: bold;}
-        .ansbutton {margin-left: 80%; margin-top: -6%;}
-        .delete {margin-left: 89%; margin-top: 0%;}
-        .answer {background-color: #C9F2B1;}
-    </style>
-    <title>Вопрос - Ответ</title>
+    <link rel="stylesheet" href="../static/css/questions.css" media="screen">
 </head>
 <body class="container">
-<h1>Записи на форуме</h1>
-<a href="/" class="btn btn-primary">Вернуться на главную</a>
+<h1 style="text-align: center;">Записи на форуме</h1>
 <!--------------------------------------------->
 {% if current_user.is_authenticated and not current_user.admin%}
     <a href="add_question" class="btn btn-secondary">Добавить вопрос</a>
@@ -38,13 +24,13 @@
     {% if current_user.admin%}
         <a href="delete_question/{{item.id}}" class="btn btn-danger delete">Удалить</a>
         {% if item.id not in question_id%}
-            <a href="answer" class="btn btn-success ansbutton">Ответить</a>
+            <a href="answer/{{item.id}}" class="btn btn-success ansbutton">Ответить</a>
         {% endif %}
     {% endif %}
     {% if item.id in question_id%}
     <div class="answer col-md6 border rounded border-danger border-2 text">
         {% for i in answers%}
-            {% if item.id == i.id%}
+            {% if item.id == i.question_id%}
                 <p class="text date">ADMIN</p>
             <p> - {{i.content}}</p>
             {% endif %}
@@ -53,5 +39,6 @@
     {% endif %}
 </div>
 {% endfor %}
+<br>
 </body>
-</html>
+{% endblock %}

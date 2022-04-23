@@ -118,21 +118,25 @@ def delete_question(id):
     return redirect('/all_questions')
 
 
-@app.route('/answer', methods=['GET', 'POST'])
+@app.route('/answer/<int:id>', methods=['GET', 'POST'])
 @login_required
-def answer():
+def answer(id):
     form = AnswersForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
         answers = Answers()
-        answers.question_id = form.question_id.data
+        answers.question_id = id
         answers.content = form.content.data
         current_user.answers.append(answers)
         db_sess.merge(current_user)
         db_sess.commit()
         return redirect('/all_questions')
+    con = sqlite3.connect('db/date.db')
+    cur = con.cursor()
+    lst = cur.execute('''SELECT theme FROM questions WHERE id = ?''', (id,)).fetchall()
+    question = list(map(lambda x: x[0], lst))[0]
     return render_template('answer.html', title='Ответ',
-                           form=form)
+                           form=form, question=question)
 
 
 @app.route('/')

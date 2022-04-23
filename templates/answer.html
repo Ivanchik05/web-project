@@ -10,18 +10,11 @@
     <title>Вопрос - Ответ</title>
 </head>
 <body class="container">
-<h1>Добавление ответа</h1>
+<h1 style="text-align: center;">Добавление ответа</h1>
+<a href="/all_questions" class="btn btn-secondary">Назад</a>
 <form action="" method="post">
     {{ form.hidden_tag() }}
-    <p>
-        {{ form.question_id.label }}<br>
-        {{ form.question_id(class="form-control") }}<br>
-        {% for error in form.question_id.errors %}
-            <p content="alert alert-danger" role="alert">
-                {{ error }}
-            </p>
-        {% endfor %}
-    </p>
+    <p style="font-size: 35px;"> Тема: {{ question }}.</p>
     <p>
         {{ form.content.label }}<br>
         {{ form.content(class="form-control") }}<br>
