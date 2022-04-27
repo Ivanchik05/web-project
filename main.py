@@ -83,7 +83,8 @@ def forum():
     cur = con.cursor()
     lst = cur.execute('''SELECT question_id FROM answers''').fetchall()
     question_id = list(map(lambda x: x[0], lst))
-    return render_template("questions.html", questions=questions, question_id=question_id, answers=answers)
+    return render_template("questions.html", questions=questions, question_id=question_id, answers=answers,
+                           title='Вопросы')
 
 
 @app.route('/add_question', methods=['GET', 'POST'])
@@ -148,6 +149,46 @@ def index():
 @app.route('/Контакты.html')
 def contacts():
     return render_template('Контакты.html', title='Контакты')
+
+
+@app.route('/novo_kazan')
+def novo_kazan():
+    return render_template('articles/novo_kazan.html', title='Ново-Казанский собор')
+
+
+@app.route('/museum')
+def museum():
+    return render_template('articles/museum.html', title='Лебедянский краеведческий музей')
+
+
+@app.route('/zamyatin_house')
+def zamyatin_house():
+    return render_template('articles/zamyatin_house.html', title='Дом-музей Е.И.Замятина')
+
+
+@app.route('/monastery')
+def monastery():
+    return render_template('articles/monastery.html', title='Свято-Троицкий монастырь')
+
+
+@app.route('/igumnov_house')
+def river_mecha():
+    return render_template('articles/igumnov_house.html', title='Дом Игумновых')
+
+
+@app.route('/county_school')
+def county_school():
+    return render_template('articles/county_school.html', title='Уездное училище')
+
+
+@app.route('/bridge')
+def bridge():
+    return render_template('articles/bridge.html', title='Казённый мост')
+
+
+@app.route('/tyapkina_mountain')
+def tyapkina_mountain():
+    return render_template('articles/tyapkina_mountain.html', title='Тяпкина гора')
 
 
 if __name__ == '__main__':
